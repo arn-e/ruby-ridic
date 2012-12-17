@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ri_dict/version'
+require 'ri_dic/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "ri_dic"
-  gem.version       = RiDict::VERSION
+  gem.version       = RiDic::VERSION
   gem.authors       = ["Arne Fostvedt"]
   gem.email         = ["fostvedt.arne@gmail.com"]
   gem.description   = %q{Ruby gem wrapper for the Regressive Imagery Dictionary}
