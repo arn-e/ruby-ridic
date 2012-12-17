@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ri_dict/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "ri_dict"
+  gem.name          = "ri_dic"
   gem.version       = RiDict::VERSION
   gem.authors       = ["Arne Fostvedt"]
   gem.email         = ["fostvedt.arne@gmail.com"]
