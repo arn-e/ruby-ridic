@@ -3,7 +3,8 @@
 Ruby Gem for the Regressive Imagery Dictionary :
 http://www.kovcomp.co.uk/wordstat/RID.html
 
-RID is a text content analysis set, associating words (and word stems) with categories such as emotion, sensation and "abstract thought"
+RID is a text content analysis set, associating words (and word stems) with  
+categories such as emotion, sensation and "abstract thought"
 
 ## Installation
 
