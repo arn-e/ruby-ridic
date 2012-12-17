@@ -1,4 +1,4 @@
-# RiDict
+# RiDic
 
 Ruby Gem for the Regressive Imagery Dictionary :  
 http://www.kovcomp.co.uk/wordstat/RID.html
@@ -10,7 +10,7 @@ categories such as emotion, sensation and "abstract thought"
 
 Add this line to your application's Gemfile:
 
-    gem 'ri_dict'
+    gem 'ri_dic'
 
 And then execute:
 
@@ -18,11 +18,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ri_dict
+    $ gem install ri_dic
 
 ## Usage
 
-* Two basic methods are exposed :
+Search Methods ::
   * RiDic::Dictionary.word_match("word")
   * RiDic::Dictionary.stem_match("word")
 
