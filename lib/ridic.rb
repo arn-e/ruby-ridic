@@ -8,6 +8,7 @@ module RiDic
 
   def self.stem_match(text_word)
     text_word.upcase!
-    RiDic::Dictionary.word_stems.each {|key, value| (return value) if text_word.match(key)}
+    RiDic::Dictionary.word_stems.find {|}
+    RiDic::Dictionary.word_stems.each {|key, value| (return [key,value]) if text_word.match("^#{key})}
   end  
 end
