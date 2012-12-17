@@ -22,10 +22,10 @@ Or install it yourself as:
   * RiDic::Dictionary.word_match("word")
   * RiDic::Dictionary.stem_match("word")
 
-word_match will match words that are *not* stemmed
-stem_match will match words against stems
-The logic is separated for performance reasons -
-stem_match will iterate over the dictionary and return once a match has been found
+word_match will match words that are *not* stemmed  
+stem_match will match words against stems  
+The logic is separated for performance reasons -  
+stem_match will iterate over the dictionary and return once a match has been found  
 Both methods return nil if no match is found
 
 ## Contributing
