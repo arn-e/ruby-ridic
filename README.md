@@ -22,9 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-Search Methods ::
-  * RiDic::Dictionary.word_match("word")
-  * RiDic::Dictionary.stem_match("word")
+Search Methods :
+  * RiDic.word_match("word")
+  * RiDic.stem_match("word")
 
 word_match will match words that are *not* stemmed  
 stem_match will match words against stems  
