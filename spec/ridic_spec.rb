@@ -13,9 +13,11 @@ describe 'RiDic' do
 
   describe '.stem_match' do 
     it 'retrives word if stem found in dictionary' do
+      RiDic.stem_match('poetically').should eql('["POET", ["EXPRESSIVE_BEH", "", "EMOTIONS"]]')
     end
 
     it 'returns il if stem does not exist in dictionary' do
+      RiDic.stem_match('mxyzptlk').should eql(nil)
     end
   end
 end
