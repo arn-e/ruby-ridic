@@ -10,7 +10,7 @@ categories such as emotion, sensation and "abstract thought"
 
 Add this line to your application's Gemfile:
 
-    gem 'ri_dic'
+    gem 'ridic'
 
 And then execute:
 
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ri_dic
+    $ gem install ridic
 
 ## Usage
 
