@@ -6,10 +6,10 @@ require 'ri_dict/version'
 Gem::Specification.new do |gem|
   gem.name          = "ri_dict"
   gem.version       = RiDict::VERSION
-  gem.authors       = ["TODO: Write your name"]
-  gem.email         = ["TODO: Write your email address"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.authors       = ["Arne Fostvedt"]
+  gem.email         = ["fostvedt.arne@gmail.com"]
+  gem.description   = %q{Ruby gem wrapper for the Regressive Imagery Dictionary}
+  gem.summary       = %q{Exposes methods to access and search RID}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
