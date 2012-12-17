@@ -1,6 +1,6 @@
 # RiDic
 
-Ruby Gem for the Regressive Imagery Dictionary :  
+Ruby interface for the Regressive Imagery Dictionary :  
 http://www.kovcomp.co.uk/wordstat/RID.html
 
 RID is a text content analysis set, associating words (and word stems) with  
