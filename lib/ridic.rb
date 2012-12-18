@@ -11,4 +11,12 @@ module RiDic
     RiDic::Dictionary.word_stems.each {|key, value| (return [key,value]) if text_word.match("^#{key}")}
     nil
   end  
+
+  def self.categories_in_document(document_text, result = [])
+    document_text.split(' ').each do |elem| 
+      word_match(elem) == nil ? result << stem_match(elem) : result << word_match(elem)
+    end
+    result
+  end
+
 end

@@ -20,5 +20,20 @@ describe 'RiDic' do
       RiDic.stem_match('mxyzptlk').should eql(nil)
     end
   end
+
+  describe '.categories_in_document' do
+    let(:document_text) {"splendid and sublime ale critiqued and bit the harlot of an apple"}
+    let(:categories_result){RiDic.categories_in_document(document_text)}
+    
+    it 'returns an element for every word in the document' do
+      categories_result.length.should eql(document_text.split.length)
+    end
+
+    it 'correctly evaluates the first dictionary item' do
+      categories_result.first.should eql(["SPLENDID", ["GLORY", "", "EMOTIONS"]])
+    end
+
+  end
+
 end
 
