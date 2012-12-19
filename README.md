@@ -20,9 +20,10 @@ Or install it yourself as:
 
     $ gem install ridic
 
-## Usage
+## Documentation
 
 API Methods :
+
   * RiDic.word_match("word")
     * Returns categories if word is an exact match
   * RiDic.stem_match("word")
@@ -34,13 +35,6 @@ API Methods :
   * RiDic.category_distribution("document text", category_number)
     * Returns the occurrence of each specified category (within a hierarchy) contained in a body of text
 
-
-word_match will match words that are *not* stemmed  
-stem_match will match words against stems  
-
-The logic is separated for performance reasons -  
-stem_match will iterate over the dictionary and return once a match has been found  
-Both methods return nil if no match is found
 
 ## Contributing
 
