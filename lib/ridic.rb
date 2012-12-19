@@ -12,6 +12,7 @@ module RiDic
     nil
   end  
 
+  # Note : might want to refactor in order to add delete_if nil in this method
   def self.all_categories_in_document(document_text, result = [])
     document_text.split(' ').each do |elem| 
       word_match(elem) == nil ? result << stem_match(elem) : result << word_match(elem)
@@ -24,22 +25,9 @@ module RiDic
     result
   end
 
-  def self.first_category_distribution(document_text, result = Hash.new)
-    categories = all_categories_in_document(document_text).delete_if {|i| i == nil}
+  def self.first_category_distribution(document_text, result = Hash.new(0))
+    first_categories = first_category_in_document(document_text).delete_if {|i| i == nil}
+    first_categories.each {|elem| result[elem.first] += 1}
+    result
   end
-
-  private
-
-  def self.first_category(category_list)
-    category_list.first
-  end
-
-  def self.second_category(category_list)
-    category_list[1]
-  end
-
-  def self.third_category(category_list)
-    category_list[2]
-  end
-
 end

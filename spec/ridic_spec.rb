@@ -57,16 +57,21 @@ describe 'RiDic' do
 
   describe '.first_category_distribution' do
     context 'provided with a list including dictionary words' do
-      let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit"}    
+      let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit advisors"}    
       let(:result) {RiDic.first_category_distribution(document_text)}
 
-      it 'returns an element for each dictionary match' do
-        result.length.should eql(6)
+      it 'returns an element for each category match' do
+        result.length.should eql(4)
       end
 
       it 'evaluates the correct number of words associated with AFFECTION' do
-        # result["AFFECTION"].should eql(2)
+        result["AFFECTION"].should eql(2)
       end
+
+      it 'evaluates the correct number of words associated with AFFECTION' do
+        result["SOCIAL_BEHAVIOR"].should eql(2)
+      end
+
     end
     
     context 'provided a list including no dictionary words' do
