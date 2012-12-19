@@ -75,9 +75,11 @@ describe 'RiDic' do
     end
     
     context 'provided a list including no dictionary words' do
-      let(:document_text) {"humpty dumpty's funky wall"}    
+      let(:document_text) {"humpty dumpty's funky"}    
+      let(:result) {RiDic.first_category_distribution(document_text)}
 
-      it '' do
+      it 'returns no elements' do
+        result.length.should eql(0)
       end
     end
 
