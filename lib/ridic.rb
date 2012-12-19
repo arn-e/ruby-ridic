@@ -19,15 +19,14 @@ module RiDic
     result
   end
 
-  def self.first_category_in_document(document_text, result = [])
-    all_categories_in_document(document_text).delete_if {|i| i == nil}.each {|elem| result << [elem.first]}
+  def self.category_in_document(document_text, category_number, result = [])
+    all_categories_in_document(document_text).delete_if {|i| i == nil}.each {|elem| result << [elem[category_number - 1]]}
     result
   end
 
-  def self.first_category_distribution(document_text, result = Hash.new(0))
-    first_categories = first_category_in_document(document_text).delete_if {|i| i == nil}
+  def self.category_distribution(document_text, category_number, result = Hash.new(0))
+    first_categories = category_in_document(document_text, category_number).delete_if {|i| i == nil}
     first_categories.each {|elem| result[elem.first] += 1}
     result
   end
-
 end

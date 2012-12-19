@@ -34,31 +34,34 @@ describe 'RiDic' do
     end
   end
 
-  describe '.first_category_in_document' do
-    let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit"}
-    let(:result) {RiDic.first_category_in_document(document_text)}
+  describe '.category_in_document' do
+    context 'category 1' do
+      let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit"}
+      let(:result) {RiDic.category_in_document(document_text, 1)}
 
-    it 'returns an element for each dictionary match' do
-      result.length.should eql(6)
+      it 'returns an element for each dictionary match' do
+        result.length.should eql(6)
+      end
+
+      it 'returns a collection of elements that each also contain a single element' do      
+        result.first.length.should eql(1)      
+      end
+
+      it 'correctly evaluates the first items category to be GLORY' do
+        result.first.should eql(['GLORY'])    
+      end
+
+      it 'correctly evaluates the last items category to be SOCIAL_BEHAVIOR' do
+        result[-1].should eql(['SOCIAL_BEHAVIOR'])
+      end
     end
 
-    it 'returns a collection of elements that each also contain a single element' do      
-      result.first.length.should eql(1)      
-    end
-
-    it 'correctly evaluates the first items category to be GLORY' do
-      result.first.should eql(['GLORY'])    
-    end
-
-    it 'correctly evaluates the last items category to be SOCIAL_BEHAVIOR' do
-      result[-1].should eql(['SOCIAL_BEHAVIOR'])
-    end
   end
 
-  describe '.first_category_distribution' do
+  describe '.category_distribution' do
     context 'provided with a list including dictionary words' do
       let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit advisors"}    
-      let(:result) {RiDic.first_category_distribution(document_text)}
+      let(:result) {RiDic.category_distribution(document_text, 1)}
 
       it 'returns an element for each category match' do
         result.length.should eql(4)
@@ -71,12 +74,11 @@ describe 'RiDic' do
       it 'evaluates the correct number of words associated with AFFECTION' do
         result["SOCIAL_BEHAVIOR"].should eql(2)
       end
-
     end
     
     context 'provided a list including no dictionary words' do
       let(:document_text) {"humpty dumpty's funky"}    
-      let(:result) {RiDic.first_category_distribution(document_text)}
+      let(:result) {RiDic.category_distribution(document_text, 1)}
 
       it 'returns no elements' do
         result.length.should eql(0)
