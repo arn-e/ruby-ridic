@@ -12,7 +12,6 @@ module RiDic
     nil
   end  
 
-  # Note : might want to refactor in order to add delete_if nil in this method
   def self.all_categories_in_document(document_text, result = [])
     document_text.split(' ').each do |elem| 
       word_match(elem) == nil ? result << stem_match(elem) : result << word_match(elem)
