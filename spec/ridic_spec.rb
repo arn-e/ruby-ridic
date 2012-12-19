@@ -75,7 +75,7 @@ describe 'RiDic' do
   end
 
   describe '.category_distribution' do
-    context 'provided with a list including dictionary words' do
+    context 'provided with a list including dictionary words - category 1' do
       let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit advisors"}    
       let(:result) {RiDic.category_distribution(document_text, 1)}
 
@@ -92,13 +92,31 @@ describe 'RiDic' do
       end
     end
     
-    context 'provided a list including no dictionary words' do
+    context 'provided a list including no dictionary words - category 1' do
       let(:document_text) {"humpty dumpty's funky"}    
       let(:result) {RiDic.category_distribution(document_text, 1)}
 
       it 'returns no elements' do
         result.length.should eql(0)
       end
+    end
+
+    context 'category 2' do
+      let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit advisors"}    
+      let(:result) {RiDic.category_distribution(document_text, 2)}      
+      
+      it 'evaluates the correct number of words associated with NEED' do
+        result["NEED"].should eql(1)
+      end      
+    end
+
+    context 'category 3' do
+      let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit advisors"}    
+      let(:result) {RiDic.category_distribution(document_text, 3)}      
+      
+      it 'evaluates the correct number of words associated with EMOTIONS' do
+        result["EMOTIONS"].should eql(4)
+      end      
     end
 
   end
