@@ -29,4 +29,5 @@ module RiDic
     first_categories.each {|elem| result[elem.first] += 1}
     result
   end
+
 end
