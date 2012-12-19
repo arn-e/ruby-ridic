@@ -33,6 +33,11 @@ module RiDic
 
   private
 
+  def self.sort_distribution(distribution_set, result = Hash.new)
+    distribution_set.sort_by {|key, value| value}.reverse.each {|i| result[i[0]] = i[1]}
+    result
+  end
+
   def self.sanitize(document_text)
     document_text.split(' ').each {|word| word.gsub!(/\W/, '')}.join(' ')
   end

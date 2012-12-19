@@ -127,5 +127,15 @@ describe 'RiDic' do
     end
   end
 
+  describe '.sort_distribution' do
+    let(:document_text) {"splendid amorous endearing and cordial sublime ale whatcha callit advisors"}    
+    let(:distribution_set) {RiDic.category_distribution(document_text,1)}
+    let(:result) {RiDic.sort_distribution(distribution_set)}
+    
+    it 'sorts a distribution set based on the value (number of instances)' do
+      result.first.should eql(["AFFECTION", 3])
+    end
+  end
+
 end
 
