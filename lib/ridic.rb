@@ -3,7 +3,8 @@ require "ridic/dictionary"
 
 module RiDic
   def self.word_match(text_word)
-    RiDic::Dictionary.words[text_word.upcase]
+    dictionary_1 = RiDic::Dictionary.words[text_word.upcase]
+    dictionary_1 == nil ? RiDic::Dictionary.word_stems[text_word.upcase] : dictionary_1
   end
 
   def self.stem_match(text_word)
