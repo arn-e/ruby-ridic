@@ -14,19 +14,19 @@ module RiDic
   end  
 
   def self.all_categories_in_document(document_text, result = [])
-    document_text.split(' ').each do |elem| 
+    sanitize(document_text).split(' ').each do |elem| 
       word_match(elem) == nil ? result << stem_match(elem) : result << word_match(elem)
     end
     result
   end
 
   def self.category_in_document(document_text, category_number, result = [])
-    all_categories_in_document(document_text).delete_if {|i| i == nil}.each {|elem| result << [elem[category_number - 1]]}
+    all_categories_in_document(sanitize(document_text)).delete_if {|i| i == nil}.each {|elem| result << [elem[category_number - 1]]}
     result.delete_if {|i| i == [""]}
   end
 
   def self.category_distribution(document_text, category_number, result = Hash.new(0))
-    first_categories = category_in_document(document_text, category_number).delete_if {|i| i == nil}
+    first_categories = category_in_document(sanitize(document_text), category_number).delete_if {|i| i == nil}
     first_categories.each {|elem| result[elem.first] += 1}
     result
   end

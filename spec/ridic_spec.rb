@@ -118,14 +118,14 @@ describe 'RiDic' do
         result["EMOTIONS"].should eql(4)
       end      
     end
-
   end
+
   describe '.sanitize' do
     let(:document_text) {"test, this is a string."}
     it 'removes non alphabetic chars from a string' do
       RiDic.sanitize(document_text).should eql("test this is a string")
     end
   end
-  
+
 end
 
