@@ -30,4 +30,10 @@ module RiDic
     first_categories.each {|elem| result[elem.first] += 1}
     result
   end
+
+  private
+
+  def self.sanitize(document_text)
+    document_text.split(' ').each {|word| word.gsub!(/\W/, '')}.join(' ')
+  end
 end
