@@ -21,7 +21,7 @@ module RiDic
 
   def self.category_in_document(document_text, category_number, result = [])
     all_categories_in_document(document_text).delete_if {|i| i == nil}.each {|elem| result << [elem[category_number - 1]]}
-    result
+    result.delete_if {|i| i == [""]}
   end
 
   def self.category_distribution(document_text, category_number, result = Hash.new(0))

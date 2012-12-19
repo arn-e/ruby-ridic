@@ -63,6 +63,14 @@ describe 'RiDic' do
         result.first.should eql(['NEED'])    
       end
     end
+    context 'category 3' do
+      let(:document_text) {"splendid endearing and cordial sublime ale whatcha callit"}
+      let(:result) {RiDic.category_in_document(document_text, 3)}
+
+      it 'correctly evaluates the first items category to be GLORY' do
+        result.first.should eql(['EMOTIONS'])    
+      end
+    end
 
   end
 
