@@ -26,7 +26,9 @@ API Methods :
 
     RiDic.word_match("string")
   * Returns categories if word is an exact match
+    
     RiDic.stem_match("string")
+    
   * Returns categories if word is a match for a provided stem
     RiDic.all_categories_in_document("multi word string")
   * Returns a list of all categories matching all words in a given body of text
