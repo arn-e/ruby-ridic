@@ -24,17 +24,20 @@ Or install it yourself as:
 
 API Methods :
 
-  * RiDic.word_match("word")
-    * Returns categories if word is an exact match
-  * RiDic.stem_match("word")
-    * Returns categories if word is a match for a provided stem
-  * RiDic.all_categories_in_document("document text")
-    * Returns a list of all categories matching all words in a given body of text
-  * RiDic.category_in_document("document text", category_number)
-    * Returns a list of a specific category hierarchy contained in a given body of text
-  * RiDic.category_distribution("document text", category_number)
-    * Returns the occurrence of each specified category (within a hierarchy) contained in a body of text
+    RiDic.word_match("string")
+  * Returns categories if word is an exact match
+    RiDic.stem_match("string")
+  * Returns categories if word is a match for a provided stem
+    RiDic.all_categories_in_document("multi word string")
+  * Returns a list of all categories matching all words in a given body of text
+    RiDic.category_in_document("multi_word_string", category_number_fixnum)
+  * Returns a list of a specific category hierarchy contained in a given body of text
+    RiDic.category_distribution("multi_word_string", category_number_fixnum)
+  * Returns the occurrence of each specified category (within a hierarchy) contained in a body of text
 
+category_number refers to the “column”, or category hierarchy. In the case of “ALE”, categories 1, 2 and 3 would be ORALITY, NEED and PRIMARY respectively.
+
+    "ALE" => ["ORALITY","NEED","PRIMARY"]
 
 ## Contributing
 
