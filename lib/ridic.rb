@@ -25,7 +25,7 @@ module RiDic
     result.delete_if {|i| i == [""]}
   end
 
-  def self.category_distribution(document_text, category_number, result = Hash.new(0))
+  def self.category_distribution(document_text, category_number = 1, result = Hash.new(0))
     first_categories = category_in_document(sanitize(document_text), category_number).delete_if {|i| i == nil}
     first_categories.each {|elem| result[elem.first] += 1}
     sort_distribution(result)
