@@ -43,7 +43,8 @@ category_number refers to the “column”, or category hierarchy. In the case o
 
     "ALE" => ["ORALITY","NEED","PRIMARY"]
 
-The full dictionary can be found in its original format at the URL provided at the top of the page, or in hash table format within lib/ridic/dictionary.rb
+The full dictionary can be found in its original format at the URL provided at the top of the page,  
+or in hash table format within lib/ridic/dictionary.rb
 ## Contributing
 
 1. Fork it
