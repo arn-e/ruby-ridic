@@ -37,6 +37,9 @@ module RiDic
 
   # optimized private copies of certain public facing methods
   # optimized for speed by removing unnecessary duplication of method calls (sanitize, upcase, etc.)
+  # TBD : 
+  # 1. merge optimized / non-optimized public methods (DRY)
+  # 2. update .optimized_all_categories_in_document - currently too slow
 
   def self.optimized_word_match(text_word)
     dictionary_1 = RiDic::Dictionary.words[text_word]
