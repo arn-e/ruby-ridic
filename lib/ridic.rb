@@ -33,12 +33,6 @@ module RiDic
     sort_distribution(result)
   end
 
-  def self.orig_category_distribution(document_text, category_number = 1, result = Hash.new(0))
-    first_categories = category_in_document(sanitize(document_text), category_number).delete_if {|i| i == nil}
-    first_categories.each {|elem| result[elem.first] += 1}
-    sort_distribution(result)
-  end
-
   private
 
   # optimized private copies of certain public facing methods
