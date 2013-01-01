@@ -1,5 +1,6 @@
 require "ridic/version"
 require "ridic/dictionary"
+require 'benchmark'
 
 module RiDic
   def self.word_match(text_word)
@@ -27,7 +28,13 @@ module RiDic
   end
 
   def self.category_distribution(document_text, category_number = 1, result = Hash.new(0))
-    first_categories = optimized_category_in_document(sanitize(document_text.upcase), category_number).delete_if {|i| i == nil}
+    first_categories = optimized_category_in_document(sanitize(document_text.upcase), category_number)
+    first_categories.each {|elem| result[elem.first] += 1}
+    sort_distribution(result)
+  end
+
+  def self.orig_category_distribution(document_text, category_number = 1, result = Hash.new(0))
+    first_categories = category_in_document(sanitize(document_text), category_number).delete_if {|i| i == nil}
     first_categories.each {|elem| result[elem.first] += 1}
     sort_distribution(result)
   end
@@ -49,14 +56,21 @@ module RiDic
 
   def self.optimized_all_categories_in_document(document_text, result = [])
     document_text.split(' ').each do |elem|
-      res = optimized_word_match(elem) 
-      res == nil ? result << optimized_stem_match(elem) : result << res
+      word_res = optimized_word_match(elem) 
+
+      if word_res == nil
+        stem_res = optimized_stem_match(elem)
+        result.push(stem_res) if stem_res != nil
+      else
+        result << word_res
+      end
+
     end
     result
   end
 
   def self.optimized_category_in_document(document_text, category_number, result = [])
-    optimized_all_categories_in_document(document_text).delete_if {|i| i == nil}.each {|elem| result << [elem[category_number - 1]]}
+    optimized_all_categories_in_document(document_text).each {|elem| result << [elem[category_number - 1]]}
     result.delete_if {|i| i == [""]}
   end
 
@@ -71,3 +85,4 @@ module RiDic
     document_text.split(' ').each {|word| word.gsub!(/\W/, '')}.join(' ')
   end
 end
+
