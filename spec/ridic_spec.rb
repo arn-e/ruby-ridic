@@ -25,8 +25,8 @@ describe 'RiDic' do
     let(:document_text) {"splendid and sublime ale critiqued and bit the harlot of an apple"}
     let(:categories_result){RiDic.all_categories_in_document(document_text)}
     
-    it 'returns an element for every word in the document' do
-      categories_result.length.should eql(document_text.split.length)
+    it 'returns an element for every word match in the document' do
+      categories_result.length.should eql(5)
     end
 
     it 'correctly evaluates the first dictionary item' do
