@@ -11,8 +11,12 @@ module RiDic
 
   def self.stem_match(text_word)
     text_word.upcase!
-    until text_word.length < 3
-      text_word = text_word[0...-1]
+
+    max_length = text_word.length
+    max_length > 14 ? max_length = 14 : max_length
+
+    max_length.downto(3) do |i|
+      text_word = text_word[0...i]
       dictionary_2 = RiDic::Dictionary.word_stems[text_word]
       (return dictionary_2) if dictionary_2 != nil
     end
@@ -55,6 +59,32 @@ module RiDic
   def self.sanitize(document_text)
     document_text.split(' ').each {|word| word.gsub!(/\W/, '')}.join(' ')
   end
+
+  # Benchmarking 
+
+  # Benchmark.bmbm do |x|
+  #   x.report('edge case orig stem_match') do
+  #     100.times { RiDic.orig_stem_match("playingtasticallymajorpainisticyodudehahaha") }
+  #   end
+  #   x.report('edge case new stem_match') do
+  #     100.times { RiDic.stem_match("playingtasticallymajorpainisticyodudehahaha") }
+  #   end
+
+  #   x.report('standard case orig_stem_match') do
+  #     100.times { RiDic.orig_stem_match("playing") }
+  #   end
+  #   x.report('standard case new stem_match') do
+  #     100.times { RiDic.stem_match("playing") }
+  #   end
+
+  #   x.report('standard case no match orig_stem_match') do
+  #     100.times { RiDic.orig_stem_match("monkey") }
+  #   end
+  #   x.report('standard case no match new stem_match') do
+  #     100.times { RiDic.stem_match("monkey") }
+  #   end
+
+  # end
 
 end
 
