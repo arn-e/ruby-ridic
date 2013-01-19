@@ -65,21 +65,21 @@ module RiDic
 
   # Benchmarking (disabled by default)
 
-  Benchmark.bmbm do |x|
+  # Benchmark.bmbm do |x|
     
-    x.report('edge case stem_match') do
-      100.times { RiDic.stem_match("playingtasticallymajorpainisticyodudehahaha") }
-    end
+  #   x.report('edge case stem_match') do
+  #     100.times { RiDic.stem_match("playingtasticallymajorpainisticyodudehahaha") }
+  #   end
 
-    x.report('standard case stem_match') do
-      100.times { RiDic.stem_match("playing") }
-    end
+  #   x.report('standard case stem_match') do
+  #     100.times { RiDic.stem_match("playing") }
+  #   end
 
-    x.report('standard case no match stem_match') do
-      100.times { RiDic.stem_match("monkey") }
-    end
+  #   x.report('standard case no match stem_match') do
+  #     100.times { RiDic.stem_match("monkey") }
+  #   end
 
-  end
+  # end
 
 end
 
