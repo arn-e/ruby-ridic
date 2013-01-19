@@ -3,10 +3,13 @@ require "ridic/dictionary"
 require 'benchmark'
 
 module RiDic
+  @word_dictionary = RiDic::Dictionary.words
+  @stem_dictionary = RiDic::Dictionary.word_stems
+
   def self.word_match(text_word)
     text_word.upcase!
-    dictionary_1 = RiDic::Dictionary.words[text_word]
-    dictionary_1 == nil ? RiDic::Dictionary.word_stems[text_word] : dictionary_1
+    dictionary_1 = @word_dictionary[text_word]
+    dictionary_1 == nil ? @stem_dictionary[text_word] : dictionary_1
   end
 
   def self.stem_match(text_word)
@@ -17,7 +20,7 @@ module RiDic
 
     max_length.downto(3) do |i|
       text_word = text_word[0...i]
-      dictionary_2 = RiDic::Dictionary.word_stems[text_word]
+      dictionary_2 = @stem_dictionary[text_word]
       (return dictionary_2) if dictionary_2 != nil
     end
     nil
@@ -60,31 +63,23 @@ module RiDic
     document_text.split(' ').each {|word| word.gsub!(/\W/, '')}.join(' ')
   end
 
-  # Benchmarking 
+  # Benchmarking (disabled by default)
 
-  # Benchmark.bmbm do |x|
-  #   x.report('edge case orig stem_match') do
-  #     100.times { RiDic.orig_stem_match("playingtasticallymajorpainisticyodudehahaha") }
-  #   end
-  #   x.report('edge case new stem_match') do
-  #     100.times { RiDic.stem_match("playingtasticallymajorpainisticyodudehahaha") }
-  #   end
+  Benchmark.bmbm do |x|
+    
+    x.report('edge case stem_match') do
+      100.times { RiDic.stem_match("playingtasticallymajorpainisticyodudehahaha") }
+    end
 
-  #   x.report('standard case orig_stem_match') do
-  #     100.times { RiDic.orig_stem_match("playing") }
-  #   end
-  #   x.report('standard case new stem_match') do
-  #     100.times { RiDic.stem_match("playing") }
-  #   end
+    x.report('standard case stem_match') do
+      100.times { RiDic.stem_match("playing") }
+    end
 
-  #   x.report('standard case no match orig_stem_match') do
-  #     100.times { RiDic.orig_stem_match("monkey") }
-  #   end
-  #   x.report('standard case no match new stem_match') do
-  #     100.times { RiDic.stem_match("monkey") }
-  #   end
+    x.report('standard case no match stem_match') do
+      100.times { RiDic.stem_match("monkey") }
+    end
 
-  # end
+  end
 
 end
 
