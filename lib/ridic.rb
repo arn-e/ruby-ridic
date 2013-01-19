@@ -1,6 +1,6 @@
 require "ridic/version"
 require "ridic/dictionary"
-require 'benchmark'
+require "benchmark"
 
 module RiDic
   @word_dictionary = RiDic::Dictionary.words
