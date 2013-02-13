@@ -1,4 +1,4 @@
-# RiDic
+# RIDic
 
 Ruby interface for the Regressive Imagery Dictionary :  
 http://www.kovcomp.co.uk/wordstat/RID.html
